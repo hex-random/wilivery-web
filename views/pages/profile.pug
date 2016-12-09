@@ -1,5 +1,46 @@
 extends ../app
 
+append scripts
+    script(src='/js/profile.js')
+
 block app
-    .ui.container.section
-        h2 Work in progress
+    .ui.profile.container.section
+        .row
+            .col.s6.m3
+                .card: .card-content
+                    span.card-title
+                        i.material-icons assignment_ind
+                        | &nbsp;닉네임
+                    p: .chip
+                        | @
+                        span#nickname #{user.nickname}
+
+            .col.s6.m3
+                .card: .card-content
+                    span.card-title
+                        i.material-icons email
+                        | &nbsp;이메일
+                    p: .chip #{user.email}
+
+
+            .col.s6.m3
+                .card: .card-content
+                    span.card-title
+                        i.material-icons loyalty
+                        | &nbsp;관심사
+                    p
+                        for i in user.interestedIn
+                            span.chip= i
+
+        .row: .col.s12.m6
+            h4 내가 쓴 글
+            #my-articles: .grid.row
+                .grid-item.col.s12(v-cloak, v-for='article in articles'): .card
+                    .card-content
+                        span.card-title.truncate.tooltipped(data-position='top', v-bind:data-tooltip='article.title') {{ article.title }}
+                        p {{ article.content }}&nbsp;
+                            em.tooltipped.grey-text(data-position='bottom', v-bind:data-tooltip='moment(article.date).format("YYYY-MM-DD HH:mm:ss")')
+                                | ({{ moment(article.date).fromNow() }})
+                            br
+                            br
+                            span.chip(v-for='tag in article.category') \#{{ tag }}

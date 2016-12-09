@@ -2,11 +2,11 @@
 
 $(function(){
     $.ajax({
-        url: '/api/recent-articles',
-        method: 'GET', dataType: 'json'
+        method: 'GET', dataType: 'json',
+        url: '/api/get-articles/' + $('#nickname').text()
     }).done(function(result){
         new Vue({
-            el: '#recent',
+            el: '#my-articles',
             data: { articles: result },
             mounted: function(){
                 $('.tooltipped').tooltip({ delay: 50 });

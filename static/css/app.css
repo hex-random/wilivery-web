@@ -30,7 +30,7 @@ nav .button-collapse {
     color: #BDBDBD;
 }
 
-.icon-block .material-icons {
+.icon-block .material-icons, .profile .material-icons {
     font-size: inherit;
 }
 

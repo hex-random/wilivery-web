@@ -45,6 +45,11 @@ module.exports = (app, passport) => {
         .then(articles => res.json(articles))
         .catch(() => res.send(500)));
 
+    app.get('/api/get-articles/:nickname', (req, res, next) => Article.find({ author: req.params.nickname })
+        .sort('-date').exec()
+        .then(articles => res.json(articles))
+        .catch(() => res.send(500)));
+
     app.use((req, res, next) => {
         let err = new Error('Not Found');
         err.status = 404; next(err);
