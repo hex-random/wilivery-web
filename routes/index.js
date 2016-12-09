@@ -31,6 +31,8 @@ module.exports = (app, passport) => {
         res.redirect('/');
     });
 
+    app.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile'));
+
     app.get('/api/recent-articles', (req, res, next) => Article.find()
         .sort('-date').limit(20).exec()
         .then(articles => res.json(articles))

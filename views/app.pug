@@ -1,5 +1,17 @@
 extends layout
 
+mixin sideNav()
+    if user
+        li
+            a(href='/profile') @#{user.nickname}
+        li
+            a(href='/sign-out') 로그아웃
+    else
+        li
+            a(href='/sign-in') 로그인
+        li
+            a(href='/sign-up') 회원가입
+
 append scripts
     script(src='/js/app.js')
 
@@ -7,6 +19,21 @@ append stylesheets
     link(rel='stylesheet', type='text/css', href='/css/app.css')
 
 block body
-    include includes/nav
+    nav.brand-color(class=hasTabs ? 'nav-extended' : '')
+        .nav-wrapper.container
+            a.brand-logo(href='/') Wilivery
+
+            a.button-collapse(href='#', data-activates='mobile')
+                i.material-icons menu
+
+            ul.right.hide-on-med-and-down
+                +sideNav()
+
+            ul.side-nav#mobile
+                +sideNav()
+
+            if hasTabs
+                block nav-tabs
+
     #app
         block app
