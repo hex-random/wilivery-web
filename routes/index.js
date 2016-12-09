@@ -31,6 +31,7 @@ module.exports = (app, passport) => {
         res.redirect('/');
     });
 
+    app.get('/write', isAuthenticated, (req, res) => res.render('pages/write'));
     app.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile'));
 
     app.get('/api/recent-articles', (req, res, next) => Article.find()
