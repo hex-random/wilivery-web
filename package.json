@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/hex-random/wilivery-backend#readme",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
@@ -30,5 +31,12 @@
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.2",
     "socket.io": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-plugin-node": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=6.7.0"
   }
 }

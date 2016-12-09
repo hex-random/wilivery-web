@@ -4,5 +4,8 @@ append stylesheets
     link(rel='stylesheet', type='text/css', href='/css/app.css')
 
 block body
-    #app
-        block app
+    include includes/nav
+    
+    #root.ui.container
+        #app
+            block app
