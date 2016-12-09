@@ -14,11 +14,14 @@ const compression = require('compression');
 const passport = require('passport');
 const connect = require('connect-mongo');
 const session = require('express-session');
+const validator = require('express-validator');
 const flash = require('connect-flash-plus');
 const secret = require('./config/secret');
 
-app.use(logger('combined'));
+app.use(validator());
 app.use(compression());
+app.use(logger('combined'));
+
 app.use(cookieParser(secret));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

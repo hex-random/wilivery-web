@@ -1,0 +1,30 @@
+extends ../app
+
+append scripts
+    script(src='/js/sign-up.js')
+
+block app
+    h1 Sign Up
+
+    .row
+        include ../includes/flash-error
+
+        form.col.s12(action='/sign-up', method='POST')
+            .row
+                .input-field.col.s12
+                    input.validate#email(type='email', name='email', required)
+                    label(for='email') Email
+                .input-field.col.s12
+                    input.validate#nickname(type='text', name='nickname', required)
+                    label(for='nickname') Nickname
+                .input-field.col.s12
+                    input.validate#password(type='password', name='password', required)
+                    label(for='password') Password
+                .input-field.col.s12
+                    input.validate#confirm(type='password', name='confirm', required)
+                    label(for='confirm') Confirm password
+            .row
+                .col.s12
+                    button.btn.waves-effect.waves-light(type='submit')
+                        | Submit
+                        i.material-icons.right send
