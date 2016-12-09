@@ -16,7 +16,7 @@ nav(class=user ? 'nav-extended' : '')
 
         a.button-collapse(href='#', data-activates='mobile')
             i.material-icons menu
-
+            
         ul.right.hide-on-med-and-down
             +sideNav()
 
@@ -24,4 +24,9 @@ nav(class=user ? 'nav-extended' : '')
             +sideNav()
 
         if user
-            include user-tabs
+            ul.tabs.tabs-transparent
+                li.tab
+                    a(href='#recent') Recent
+
+                li.tab
+                    a(href='#groups') Groups

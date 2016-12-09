@@ -42,7 +42,7 @@ db.on('open', () => {
     console.log(`Connected to database ${db.name}`);
 
     app.use(session({
-        secret, store, cookie: { maxAge: 12 * 60 * 60 * 1000 },
+        secret, store, cookie: { maxAge: 12 * 60 * 60 * 1000 }, //12h
         key: 'wilivery.sid', resave: false, saveUninitialized: false }));
 
     app.use(passport.initialize());
