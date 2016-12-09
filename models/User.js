@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const schema = mongoose.Schema({
     email: { type: String, index: true, unique: true },
     password: { type: String, set: p => bcryptjs.hashSync(p) },
-    nickname: { type: String, index: true, unique: true },
+    nickname: { type: String, maxlength: 32, index: true, unique: true },
     interestedIn: [String]
 });
 
