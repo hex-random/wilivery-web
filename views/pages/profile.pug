@@ -35,13 +35,6 @@ block app
 
         .row: .col.s12
             h4 내가 쓴 글
-            #my-articles: .grid.row
-                .grid-item.col.s12.m6(v-cloak, v-for='article in articles'): .card
-                    .card-content
-                        span.card-title.truncate.tooltipped(data-position='top', v-bind:data-tooltip='article.title') {{ article.title }}
-                        p {{ article.content }}&nbsp;
-                            em.tooltipped.grey-text(data-position='bottom', v-bind:data-tooltip='moment(article.date).format("YYYY-MM-DD HH:mm:ss")')
-                                | ({{ moment(article.date).fromNow() }})
-                            br
-                            br
-                            span.chip(v-for='tag in article.category') \#{{ tag }}
+            #my-articles
+                .grid.row: .grid-item.col.s12.m6(v-cloak, v-for='article in articles')
+                    include ../includes/article

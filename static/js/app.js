@@ -1,4 +1,17 @@
-/* global moment */
+/* global Vue moment */
+
+function renderArticles(element, options){
+    $.ajax(options).done(function(result){
+        new Vue({
+            el: element,
+            data: { articles: result },
+            mounted: function(){
+                $('.tooltipped').tooltip({ delay: 50 });
+                $('.grid').masonry({ itemSelector: '.grid-item' });
+            }
+        });
+    });
+}
 
 $(function(){
     moment.lang('ko');
@@ -6,3 +19,5 @@ $(function(){
     $('.parallax').parallax();
     $('.button-collapse').sideNav();
 });
+
+if(module) module.exports = renderArticles;
