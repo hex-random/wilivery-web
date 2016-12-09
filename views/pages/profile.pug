@@ -1,0 +1,40 @@
+extends ../app
+
+append scripts
+    script(src='/js/profile.js')
+
+block app
+    .ui.profile.container.section
+        .row
+            .col.s12: h4 내 정보
+            .col.s12.m4
+                .card: .card-content
+                    span.card-title
+                        i.material-icons assignment_ind
+                        | &nbsp;닉네임
+                    p: .chip
+                        | @
+                        span#nickname #{user.nickname}
+
+            .col.s12.m4
+                .card: .card-content
+                    span.card-title
+                        i.material-icons email
+                        | &nbsp;이메일
+                    p: .chip #{user.email}
+
+
+            .col.s12.m4
+                .card: .card-content
+                    span.card-title
+                        i.material-icons loyalty
+                        | &nbsp;관심사
+                    p
+                        for i in user.interestedIn
+                            span.chip= i
+
+        .row: .col.s12
+            h4 내가 쓴 글
+            #my-articles
+                .grid.row: .grid-item.col.s12.m6(v-cloak, v-for='article in articles')
+                    include ../includes/article

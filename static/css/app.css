@@ -1,4 +1,12 @@
-nav {
+.brand-logo {
+    font-family: Raleway, sans-serif;
+}
+
+.brand-text {
+    color: #54A0CF;
+}
+
+.brand-color {
     background-color: #6CAED5;
 }
 
@@ -16,4 +24,17 @@ nav .button-collapse {
 
 [v-cloak] {
     display: none;
+}
+
+.parallax-container .description {
+    color: #BDBDBD;
+}
+
+.icon-block .material-icons, .profile .material-icons {
+    font-size: inherit;
+}
+
+textarea.materialize-textarea {
+    resize: vertical;
+    min-height: 15rem !important;
 }

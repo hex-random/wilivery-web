@@ -4,19 +4,20 @@ append scripts
     script(src='/js/sign-in.js')
 
 block app
-    h1 Sign in
-    .row
-        include ../includes/flash
-        form.col.s12(action='/sign-in', method='POST')
-            .row
-                .input-field.col.s12
-                    input.validate#email(type='text', name='email', required)
-                    label(for='email') Email or nickname
-                .input-field.col.s12
-                    input.validate#password(type='password', name='password', required)
-                    label(for='password') Password
-            .row
-                .col.s12
-                    button.btn.waves-effect.waves-light(type='submit')
-                        | Submit
-                        i.material-icons.right send
+    .ui.container.section
+        h2 로그인
+        .row
+            include ../includes/flash
+            form.col.s12(action='/sign-in', method='POST')
+                .row
+                    .input-field.col.s12
+                        input.validate#email(type='text', name='email', required)
+                        label(for='email') 이메일 또는 닉네임
+                    .input-field.col.s12
+                        input.validate#password(type='password', name='password', required)
+                        label(for='password') 비밀번호
+                .row
+                    .col.s12
+                        button.btn.waves-effect.waves-light(type='submit')
+                            | 로그인
+                            i.material-icons.right send

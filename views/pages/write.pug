@@ -1,0 +1,26 @@
+extends ../app
+
+block app
+    .ui.container.section
+        h2 게시글 작성
+        .row
+            include ../includes/flash
+            form.col.s12(action='/write', method='POST')
+                .row.container
+                    .input-field.col.s12
+                        i.material-icons.prefix subject
+                        input#title(type='text', name='title', length='128', required)
+                        label(for='title') 제목
+                    .input-field.col.s12
+                        i.material-icons.prefix mode_edit
+                        textarea#content.materialize-textarea(name='content', length='2048', required)
+                        label(for='content') 내용
+                    .input-field.col.s12
+                        i.material-icons.prefix loyalty
+                        input#tags(type='text', name='tags', length='64')
+                        label(for='tags') 태그 (# 미포함, 공백으로 구분)
+                .row
+                    .col.s12
+                        button.btn.waves-effect.waves-light(type='submit')
+                            | 글쓰기
+                            i.material-icons.right send
