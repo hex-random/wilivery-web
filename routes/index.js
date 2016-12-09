@@ -7,6 +7,7 @@ const validation = require('../app/validation');
 module.exports = (app, passport) => {
     app.use((req, res, next) => {
         res.locals.user = req.user;
+        res.locals.jail = 'jail' in req.query;
         next();
     });
 
@@ -31,7 +32,12 @@ module.exports = (app, passport) => {
         res.redirect('/');
     });
 
-    app.get('/write', isAuthenticated, (req, res) => res.render('pages/write'));
+    app.get('/write', isAuthenticated, (req, res) => res.render('pages/write', { errors: req.flash('error') }));
+    app.post('/write', isAuthenticated, validation.validateWrite, (req, res, next) => new Article({
+        title: req.body.title, author: req.user.nickname, content: req.body.content,
+        category: req.body.tags.split(/\s+/).map(s => s.trim()).filter(s => s.length)
+    }).save().then(() => res.redirect('/')).catch(err => next(err)));
+
     app.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile'));
 
     app.get('/api/recent-articles', (req, res, next) => Article.find()

@@ -1,9 +1,15 @@
 extends layout
 
 mixin sideNav()
-    if user
+    if jail
+        li
+            a(href='#') &nbsp;
+
+    else if user
         li
             a(href='/profile') @#{user.nickname}
+        li
+            a(href='/write') 글쓰기
         li
             a(href='/sign-out') 로그아웃
     else
@@ -21,7 +27,7 @@ append stylesheets
 block body
     nav.brand-color(class=hasTabs ? 'nav-extended' : '')
         .nav-wrapper.container
-            a.brand-logo(href='/') Wilivery
+            a.brand-logo(href=jail ? '#' : '/') Wilivery
 
             a.button-collapse(href='#', data-activates='mobile')
                 i.material-icons menu

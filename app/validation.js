@@ -22,7 +22,22 @@ function validateSignIn(req, res, next){
     res.redirect('/sign-in');
 }
 
+function validateWrite(req, res, next){
+    req.checkBody('title', 'Title must be at least 2 characters').isLength({ min: 2 });
+    req.checkBody('title', 'Title cannot be longer than 128 characters').isLength({ max: 128 });
+    req.checkBody('content', 'Content must be at least 3 characters').isLength({ min: 3 });
+    req.checkBody('content', 'Content cannot be longer than 2048 characters').isLength({ max: 2048 });
+    req.checkBody('tags', 'Tags cannot be longer than 64 characters').isLength({ max: 64 });
+
+    let errors = req.validationErrors();
+    if(!errors) return next();
+
+    req.flash('error', errors.map(e => e.msg));
+    res.redirect('/write');
+}
+
 module.exports = {
     validateSignUp,
-    validateSignIn
+    validateSignIn,
+    validateWrite
 };
