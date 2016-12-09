@@ -37,7 +37,7 @@ function validateWrite(req, res, next){
 }
 
 function validateLeaveComment(req, res, next){
-    req.checkBody('content', 'Content must be at least 3 characters').isLength({ min: 3 });
+    req.checkBody('content', 'Content must be at least 2 characters').isLength({ min: 2 });
     req.checkBody('content', 'Content cannot be longer than 512 characters').isLength({ max: 512 });
 
     let errors = req.validationErrors();
