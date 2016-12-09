@@ -29,3 +29,7 @@ nav .button-collapse {
 .parallax-container .description {
     color: #BDBDBD;
 }
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
