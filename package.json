@@ -1,0 +1,22 @@
+{
+  "name": "wilivery-backend",
+  "version": "1.0.0",
+  "description": "Wilivery service backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hex-random/wilivery-backend.git"
+  },
+  "keywords": [
+    "wilivery"
+  ],
+  "author": "hex-random",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hex-random/wilivery-backend/issues"
+  },
+  "homepage": "https://github.com/hex-random/wilivery-backend#readme"
+}
