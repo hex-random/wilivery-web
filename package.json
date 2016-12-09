@@ -1,14 +1,14 @@
 {
-  "name": "wilivery-backend",
+  "name": "wilivery-web",
   "version": "1.0.0",
-  "description": "Wilivery service backend",
+  "description": "The core of Wilivery service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hex-random/wilivery-backend.git"
+    "url": "git+https://github.com/hex-random/wilivery-web.git"
   },
   "keywords": [
     "wilivery"
@@ -16,9 +16,9 @@
   "author": "hex-random",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hex-random/wilivery-backend/issues"
+    "url": "https://github.com/hex-random/wilivery-web/issues"
   },
-  "homepage": "https://github.com/hex-random/wilivery-backend#readme",
+  "homepage": "https://github.com/hex-random/wilivery-web#readme",
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "bluebird": "^3.4.6",
