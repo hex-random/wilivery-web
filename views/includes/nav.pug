@@ -1,14 +1,23 @@
+mixin sideNav()
+    li
+        a(href='/trend') Trend
+    li
+        a(href='/groups') Groups
+    li
+        a(href='/settings') Settings
+
 nav.nav-extended
     .nav-wrapper.container
         a.brand-logo(href='#') Wilivery
 
-        ul#nav-mobile.right.hide-on-med-and-down
-            li
-                a(href='/trend') Trend
-            li
-                a(href='/groups') Groups
-            li
-                a(href='/settings') Settings
+        a.button-collapse(href='#', data-activates='mobile')
+            i.material-icons menu
+
+        ul.right.hide-on-med-and-down
+            +sideNav()
+
+        ul.side-nav#mobile
+            +sideNav()
 
         ul.tabs.tabs-transparent
             li.tab
@@ -29,5 +38,3 @@ nav.nav-extended
                 a(href='#test8') Test 8
             li.tab
                 a(href='#test9') Test 9
-            li.tab
-                a(href='#test10') Test 10
