@@ -8,9 +8,10 @@ const commentSchema = mongoose.Schema({
 
 const schema = mongoose.Schema({
     title: { type: String, maxlength: 128, index: true },
-    author: { type: String, index: true }, group: { type: String, index: true },
-    content: { type: String, maxlength: 2048 }, comments: [commentSchema],
-    category: [String], date: { type: Date, default: Date.now, index: true },
+    author: { type: String, index: true },
+    date: { type: Date, default: Date.now, index: true },
+    content: { type: String, maxlength: 2048 },
+    category: [String], comments: [commentSchema]
 });
 
 module.exports = mongoose.model('Article', schema);
