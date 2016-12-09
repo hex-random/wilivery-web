@@ -38,8 +38,8 @@ mongoose.connect('mongodb://localhost:27017/wilivery', { server: { auto_reconnec
 const db = mongoose.connection;
 db.on('error', err => console.error(err));
 db.on('open', () => {
-    console.log(`Connected to database ${db.name}`);
     const store = new (new connect(session))({ mongooseConnection: db });
+    console.log(`Connected to database ${db.name}`);
 
     app.use(session({
         secret, store, cookie: { maxAge: 12 * 60 * 60 * 1000 },
@@ -51,6 +51,7 @@ db.on('open', () => {
 
     require('./app/auth')(passport);
     require('./routes')(app, passport);
+    require('./data/populate')();
 
     app.listen(app.get('port'), () => console.log(`Listening on port ${app.get('port')}`));
 });
