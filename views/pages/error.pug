@@ -1,0 +1,12 @@
+extends ../layout
+
+block body
+    nav.red.lighten-1
+        .nav-wrapper.container
+            a.brand-logo(href='/')
+                | #{(error.status ? (error.status + ' ') : '') + message}
+
+    .row
+        .col.s12
+            .card-panel
+                pre= error.stack
