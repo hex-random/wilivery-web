@@ -9,3 +9,7 @@ nav {
 .btn:hover, .btn-large:hover {
     background-color: #90C2DE;
 }
+
+nav .button-collapse {
+    margin-left: 5px;
+}
