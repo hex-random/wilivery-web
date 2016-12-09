@@ -1,6 +1,8 @@
-const validation = require('../app/validation');
 const isAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/');
 const isNotAuthenticated = (req, res, next) => !req.isAuthenticated() ? next() : res.redirect('/');
+
+const Article = require('../models/Article');
+const validation = require('../app/validation');
 
 module.exports = (app, passport) => {
     app.use((req, res, next) => {
@@ -29,11 +31,15 @@ module.exports = (app, passport) => {
         res.redirect('/');
     });
 
+    app.get('/api/recent-articles', (req, res, next) => Article.find()
+        .sort('-date').limit(20).exec()
+        .then(articles => res.json(articles))
+        .catch(() => res.send(500)));
+
     app.use((req, res, next) => {
         let err = new Error('Not Found');
         err.status = 404; next(err);
     });
-
 
     app.use((err, req, res, next) => {
         res.status(err.status || 500);

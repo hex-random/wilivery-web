@@ -10,7 +10,7 @@ mixin sideNav()
         li
             a(href='/sign-up') Sign up
 
-nav.nav-extended
+nav(class=user ? 'nav-extended' : '')
     .nav-wrapper.container
         a.brand-logo(href='#') Wilivery
 
@@ -23,22 +23,5 @@ nav.nav-extended
         ul.side-nav#mobile
             +sideNav()
 
-        ul.tabs.tabs-transparent
-            li.tab
-                a(href='#test1') Test 1
-            li.tab
-                a(href='#test2') Test 2
-            li.tab
-                a(href='#test3') Test 3
-            li.tab
-                a(href='#test4') Test 4
-            li.tab
-                a(href='#test5') Test 5
-            li.tab
-                a(href='#test6') Test 6
-            li.tab
-                a(href='#test7') Test 7
-            li.tab
-                a(href='#test8') Test 8
-            li.tab
-                a(href='#test9') Test 9
+        if user
+            include user-tabs

@@ -1,0 +1,13 @@
+#recent.section
+    .grid.row
+        .grid-item.col.s12.m4(v-for='article in articles')
+            .card
+                .card-content
+                    span.card-title.truncate(v-bind:title='article.title') {{ article.title }}
+                    p
+                        strong {{ article.author }}:&nbsp;
+                        | {{ article.content }}&nbsp;
+                        em ({{ moment(article.date).fromNow() }})
+                        br
+                        br
+                        span.chip(v-for='tag in article.category') \#{{ tag }}

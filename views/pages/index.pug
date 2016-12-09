@@ -1,10 +1,11 @@
 extends ../app
 
 append scripts
-    script(src='/js/index.js')
+    if user
+        script(src='/js/user.js')
 
 block app
     if user
-        h1 Hello, #{user.nickname}!
+        include ../includes/user
     else
         h1 Please sign in!
