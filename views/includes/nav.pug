@@ -1,10 +1,14 @@
 mixin sideNav()
-    li
-        a(href='/trend') Trend
-    li
-        a(href='/groups') Groups
-    li
-        a(href='/settings') Settings
+    if user
+        li
+            a(href='/trend') Trend
+        li
+            a(href='/sign-out') Sign out
+    else
+        li
+            a(href='/sign-in') Sign in
+        li
+            a(href='/sign-up') Sign up
 
 nav.nav-extended
     .nav-wrapper.container

@@ -1,0 +1,6 @@
+if errors
+    if Array.isArray(errors)
+        for error in errors
+            blockquote.col.s12= error
+    else
+        blockquote.col.s12= errors

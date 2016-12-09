@@ -4,19 +4,21 @@ append scripts
     script(src='/js/sign-in.js')
 
 block app
-    .row
-        form.col.s12(action='/sign-in', method='post')
-            .row
-                .input-field.col.s12
-                    input#email.validate(type='email')
-                    label(for='email') Email
-            .row
-                .input-field.col.s12
-                    input#password.validate(type='password')
-                    label(for='password') Password
+    h1 Sign in
 
+    .row
+        include ../includes/flash-error
+
+        form.col.s12(action='/sign-in', method='POST')
+            .row
+                .input-field.col.s12
+                    input.validate#email(type='text', name='email', required)
+                    label(for='email') Email or nickname
+                .input-field.col.s12
+                    input.validate#password(type='password', name='password', required)
+                    label(for='password') Password
             .row
                 .col.s12
-                    button.btn.waves-effect.waves-light(type='submit', name='action')
+                    button.btn.waves-effect.waves-light(type='submit')
                         | Submit
                         i.material-icons.right send

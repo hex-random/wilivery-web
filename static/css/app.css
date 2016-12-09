@@ -1,3 +1,11 @@
 nav {
     background-color: #6CAED5;
 }
+
+.btn, .btn-large {
+    background-color: #6CAED5;
+}
+
+.btn:hover, .btn-large:hover {
+    background-color: #90C2DE;
+}

@@ -14,11 +14,12 @@ const compression = require('compression');
 const passport = require('passport');
 const connect = require('connect-mongo');
 const session = require('express-session');
+const flash = require('connect-flash-plus');
 const secret = require('./config/secret');
 
 app.use(logger('combined'));
 app.use(compression());
-app.use(cookieParser());
+app.use(cookieParser(secret));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -43,9 +44,10 @@ db.on('open', () => {
 
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(flash());
 
-    require('./app/auth')();
-    require('./routes')(app);
+    require('./app/auth')(passport);
+    require('./routes')(app, passport);
 
     app.listen(app.get('port'), () => console.log(`Listening on port ${app.get('port')}`));
 });

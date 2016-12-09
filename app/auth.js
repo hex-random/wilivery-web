@@ -1,6 +1,4 @@
 const User = require('../models/User');
-
-const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const options = {
@@ -9,9 +7,9 @@ const options = {
     passReqToCallback: true
 };
 
-const findUser = (req, email) => ({ $or: [{ email }, { nickname: req.body.nickname }] });
+const findUser = (req, email) => User.findOne({ $or: [{ email }, { nickname: email }] });
 
-module.exports = () => {
+module.exports = (passport) => {
     passport.serializeUser((user, done) => done(null, user.email));
     passport.deserializeUser((email, done) => User.findOne({ email }).then(user => done(null, user)).catch(err => done(err)));
 
