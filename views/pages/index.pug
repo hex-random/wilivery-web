@@ -15,7 +15,9 @@ block nav-tabs
 block app
     if user
         .ui.container.section
-            include ../tabs/recent
+            #recent
+                .grid.row: .grid-item.col.s12.m4(v-cloak, v-for='article in articles')
+                    include ../includes/article
     else
         .parallax-container
             .section.no-pad-bot.container
