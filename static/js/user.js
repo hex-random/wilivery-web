@@ -10,6 +10,7 @@ $(function(){
             data: { articles: result },
             mounted: function(){
                 $('.collapsible').collapsible();
+                $('.tooltipped').tooltip({ delay: 50 });
                 $('.grid').masonry({ itemSelector: '.grid-item' });
             }
         });
