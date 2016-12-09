@@ -1,6 +1,6 @@
-#recent.section
+#recent
     .grid.row
-        .grid-item.col.s12.m4(v-for='article in articles')
+        .grid-item.col.s12.m4(v-cloak, v-for='article in articles')
             .card
                 .card-content
                     span.card-title.truncate(v-bind:title='article.title') {{ article.title }}
