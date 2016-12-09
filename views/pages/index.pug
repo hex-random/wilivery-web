@@ -6,7 +6,21 @@ append scripts
 
 block app
     if user
-        include ../tabs/recent
-        include ../tabs/groups
+        .ui.container.section
+            include ../tabs/recent
+            include ../tabs/groups
     else
-        h1 Please sign in!
+        .parallax-container
+            .section.no-pad-bot
+                .container
+                    br
+                    br
+                    h1.header.center.white-text.brand-logo Wilivery
+                    .row.center
+                        h5.header.col.s12.description 윌리버리: 로컬 공동구매 서비스
+                    .row.center
+                        a.btn-large.waves-effect.waves-light(href='/sign-up') 시작하기
+                    br
+                    br
+            .parallax
+                img(src='/img/port.jpg')
