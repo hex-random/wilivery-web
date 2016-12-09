@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
+
 const isAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/');
 const isNotAuthenticated = (req, res, next) => !req.isAuthenticated() ? next() : res.redirect('/');
 
@@ -49,6 +52,11 @@ module.exports = (app, passport) => {
         .sort('-date').exec()
         .then(articles => res.json(articles))
         .catch(() => res.send(500)));
+
+    app.post('/api/leave-comment/:article', isAuthenticated, validation.validateLeaveComment, (req, res, next) => Article.findByIdAndUpdate(
+        { _id: ObjectId(req.params.article) },
+        { $push: { comments: { author: req.user.nickname, content: req.body.content } } }
+    ).then(() => res.redirect('/')).catch(() => res.redirect('/')));
 
     app.use((req, res, next) => {
         let err = new Error('Not Found');

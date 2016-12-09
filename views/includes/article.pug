@@ -12,4 +12,23 @@
 
     .card-action
         a(href='#') 신청하기
-        a(href='#') 자세히 보기
+        a(v-bind:href='"#modal-" + article._id') 댓글 보기 (총 {{ article.comments.length }}개)
+
+.modal.bottom-sheet(v-bind:id='"modal-" + article._id')
+    .modal-content.container
+        .row
+            .col.s12: ul.collection(v-if='article.comments.length > 0')
+                li.collection-item(v-for='comment in article.comments')
+                    strong @{{ comment.author }}:&nbsp;
+                    | {{ comment.content }}&nbsp;
+                    em.tooltipped.grey-text(data-position='bottom', v-bind:data-tooltip='moment(comment.date).format("YYYY-MM-DD HH:mm:ss")')
+                        | ({{ moment(comment.date).fromNow() }})
+
+            form.col.s12(v-bind:action='"/api/leave-comment/" + article._id', method='POST')
+                .row
+                    .input-field.col.s12
+                        input(v-bind:id='"input-" + article._id', name='content', type='text', length='512', required)
+                        label(v-bind:for='"input-" + article._id') 댓글 작성하기
+                        button.right.btn.waves-effect.waves-light(type='submit')
+                            | 작성
+                            i.material-icons.right send
