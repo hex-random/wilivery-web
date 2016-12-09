@@ -24,5 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(logger('combined'));
 app.use(express.static(path.join(__dirname, 'static')));
+app.use('/bower', express.static(path.join(__dirname, 'bower_components')));
 
+require('./routes')(app);
 app.listen(app.get('port'), () => console.log(`Listening on port ${app.get('port')}`));

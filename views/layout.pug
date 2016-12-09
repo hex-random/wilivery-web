@@ -1,0 +1,26 @@
+block options
+doctype html
+
+html(lang='ko')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        title= title || 'Wilivery'
+        //- link(rel='icon', type='image/png' href='/favicon.png')
+
+        meta(name='theme-color', content='#78988E')
+        meta(name='mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+
+        meta(property='og:type', content='website')
+        meta(property='og:title', content=title || 'Wilivery')
+        meta(property='og:description', content='로컬 공동구매 서비스')
+
+        link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/earlyaccess/notosanskr.css')
+        block stylesheets
+    body
+        block body
+        script(src='/bower/vue/dist/vue.min.js')
+        block scripts
