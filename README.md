@@ -1,5 +1,11 @@
-# wilivery-backend
-Wilivery service backend
+# wilivery-web
+The core of Wilivery service
+
+## Installation
+```bash
+$ git clone https://github.com/hex-random/wilivery-web.git
+$ cd wilivery-web && npm install && bower install && node .
+```
 
 ## License
 ```

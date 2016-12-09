@@ -1,6 +1,6 @@
 {
-  "name": "wilivery-backend",
-  "description": "Wilivery service backend",
+  "name": "wilivery-web",
+  "description": "The core of Wilivery service",
   "main": "index.js",
   "authors": [
     "hex-random"
@@ -9,7 +9,7 @@
   "keywords": [
     "wilivery"
   ],
-  "homepage": "https://github.com/hex-random/wilivery-backend",
+  "homepage": "https://github.com/hex-random/wilivery-web",
   "ignore": [
     "**/.*",
     "node_modules",
