@@ -6,7 +6,8 @@
         "interestedIn":[
             "Node.js",
             "Google Nexus"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"jongseok0822@naver.com",
@@ -15,7 +16,8 @@
         "interestedIn":[
             "Heartstone",
             "Phones"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"tjduswn@naver.com",
@@ -24,7 +26,8 @@
         "interestedIn":[
             "Food",
             "Juice"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"chicken@gmail.com",
@@ -33,7 +36,8 @@
         "interestedIn":[
             "spicy",
             "it"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"wkddbstn323@hanmail.net",
@@ -42,7 +46,8 @@
         "interestedIn":[
             "IT",
             "Arduino"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"nokia9892@dimigo.hs.kr",
@@ -51,7 +56,8 @@
         "interestedIn":[
             "IT",
             "Server"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"qkrwjdwls@noname.pe.kr",
@@ -60,7 +66,8 @@
         "interestedIn":[
             "History",
             "Math"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"sonical2233@asbb.cnems.go.kr",
@@ -69,7 +76,8 @@
         "interestedIn":[
             "music",
             "food"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"barudai@naver.com",
@@ -78,7 +86,8 @@
         "interestedIn":[
             "coding",
             "heat"
-        ]
+        ],
+        "recentlyCommentedArticles": []
     },
     {
         "email":"newal7811@sonai.jp",
@@ -87,6 +96,55 @@
         "interestedIn":[
             "외국어",
             "단어장"
-        ]
+        ],
+        "recentlyCommentedArticles": []
+    },
+
+    {
+        "email":"junha0206@naver.com",
+        "password":"helloworld",
+        "nickname":"김준하",
+        "interestedIn":[
+            "IT",
+            "노트북",
+            "앱등이"
+        ],
+        "recentlyCommentedArticles": []
+
+    },
+
+    {
+        "email":"jysa000@naver.com",
+        "password":"123456789",
+        "nickname":"조영서",
+        "interestedIn":[
+            "IT",
+            "노트북",
+            "박근혜"
+        ],
+        "recentlyCommentedArticles": []
+    }
+
+    {
+        "email":"chalk@chalk.pe",
+        "password":"helloworld",
+        "nickname":"박준영",
+        "interestedIn":[
+            "IT",
+            "노트북",
+            "구글"
+        ],
+        "recentlyCommentedArticles": []
+    },
+    {
+        "email":"albert1618@naver.com",
+        "password":"123456789",
+        "nickname":"단경민",
+        "interestedIn":[
+            "IT",
+            "노트북",
+            "손에장지짐"
+        ],
+        "recentlyCommentedArticles": []
     }
 ]
