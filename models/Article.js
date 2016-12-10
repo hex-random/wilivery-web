@@ -14,4 +14,8 @@ const schema = mongoose.Schema({
     category: [String], comments: [commentSchema]
 });
 
+schema.statics.findByAuthor = function(author){
+    return this.find({ author }).sort('-date').exec();
+};
+
 module.exports = mongoose.model('Article', schema);

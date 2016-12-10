@@ -11,7 +11,7 @@
             span.chip(v-for='tag in article.category') \#{{ tag }}
 
     .card-action
-        a(href='#') 신청하기
+        //- a(href='#') 신청하기
         a(v-bind:href='"#modal-" + article._id') 댓글 보기 (총 {{ article.comments.length }}개)
 
 .modal.bottom-sheet(v-bind:id='"modal-" + article._id')
