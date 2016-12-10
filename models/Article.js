@@ -14,6 +14,13 @@ const schema = mongoose.Schema({
     category: [String], comments: [commentSchema]
 });
 
+schema.statics.create = function(req){
+    return new this({
+        title: req.body.title, author: req.user.nickname, content: req.body.content,
+        category: req.body.tags.split(/\s+/).map(s => s.trim()).filter(s => s.length)
+    }).save()
+};
+
 schema.statics.findByAuthor = function(author){
     return this.find({ author }).sort('-date').exec();
 };

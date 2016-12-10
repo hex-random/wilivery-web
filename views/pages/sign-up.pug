@@ -8,17 +8,25 @@ block app
             form.col.s12(action='/sign-up', method='POST')
                 .row
                     .input-field.col.s12
+                        i.material-icons.prefix email
                         input.validate#email(type='email', name='email', required)
                         label(for='email') 이메일
                     .input-field.col.s12
+                        i.material-icons.prefix assignment_ind
                         input.validate#nickname(type='text', name='nickname', required)
                         label(for='nickname') 닉네임
                     .input-field.col.s12
+                        i.material-icons.prefix lock
                         input.validate#password(type='password', name='password', required)
                         label(for='password') 비밀번호
                     .input-field.col.s12
+                        i.material-icons.prefix lock
                         input.validate#confirm(type='password', name='confirm', required)
                         label(for='confirm') 비밀번호 확인
+                    .input-field.col.s12
+                        i.material-icons.prefix loyalty
+                        input#interestedIn(type='text', name='interestedIn', length='64')
+                        label(for='interestedIn') 관심사 (공백으로 구분)
                 .row
                     .col.s12
                         button.btn.waves-effect.waves-light(type='submit')

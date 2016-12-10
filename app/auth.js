@@ -16,7 +16,10 @@ module.exports = (passport) => {
     passport.use('sign-up', new LocalStrategy(options, (req, email, password, done) => process.nextTick(() => findUser(req, email)
         .then(user => {
             if(user) throw new Error('That email or nickname is already taken.');
-            return new User({ email, password, nickname: req.body.nickname }).save();
+            return new User({
+                email, password, nickname: req.body.nickname,
+                interestedIn: req.body.interestedIn.split(/\s+/).map(s => s.trim()).filter(s => s.length)
+            }).save();
         })
         .then(user => done(null, user))
         .catch(err => done(null, false, { message: err.message })))));

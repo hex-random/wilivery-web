@@ -33,10 +33,8 @@ module.exports = (app, passport) => {
     });
 
     app.get('/write', isAuthenticated, (req, res) => res.render('pages/write', { errors: req.flash('error') }));
-    app.post('/write', isAuthenticated, validation.validateWrite, (req, res, next) => new Article({
-        title: req.body.title, author: req.user.nickname, content: req.body.content,
-        category: req.body.tags.split(/\s+/).map(s => s.trim()).filter(s => s.length)
-    }).save().then(() => res.redirect('/')).catch(err => next(err)));
+    app.post('/write', isAuthenticated, validation.validateWrite, (req, res, next) => Article.create(req)
+        .then(() => res.redirect('/')).catch(err => next(err)));
 
     app.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile'));
     app.get('/history', isAuthenticated, (req, res, next) => res.render('pages/history'));

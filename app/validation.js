@@ -4,6 +4,7 @@ function validateSignUp(req, res, next){
     req.checkBody('confirm', 'Confirm password must match password field').equals(req.body.password);
     req.checkBody('nickname', 'Nickname must be at least 2 characters').isLength({ min: 2 });
     req.checkBody('nickname', 'Nickname cannot be longer than 2 characters').isLength({ max: 32 });
+    req.checkBody('interestedIn', 'InterestedIn cannot be longer than 64 characters').isLength({ max: 64 });
 
     let errors = req.validationErrors();
     if(!errors) return next();

@@ -8,9 +8,11 @@ block app
             form.col.s12(action='/sign-in', method='POST')
                 .row
                     .input-field.col.s12
+                        i.material-icons.prefix email
                         input.validate#email(type='text', name='email', required)
                         label(for='email') 이메일 또는 닉네임
                     .input-field.col.s12
+                        i.material-icons.prefix lock
                         input.validate#password(type='password', name='password', required)
                         label(for='password') 비밀번호
                 .row
