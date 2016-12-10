@@ -42,3 +42,7 @@ textarea.materialize-textarea {
 .modal.bottom-sheet {
     max-height: 75% !important;
 }
+
+.card-content p {
+    word-wrap: break-word;
+}
