@@ -6,6 +6,7 @@ function renderArticles(element, options){
             el: element,
             data: { articles: result },
             mounted: function(){
+                $('.modal').modal();
                 $('.tooltipped').tooltip({ delay: 50 });
                 $('.grid').masonry({ itemSelector: '.grid-item' });
             }

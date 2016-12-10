@@ -38,3 +38,11 @@ textarea.materialize-textarea {
     resize: vertical;
     min-height: 15rem !important;
 }
+
+.modal.bottom-sheet {
+    max-height: 75% !important;
+}
+
+.card-content p {
+    word-wrap: break-word;
+}

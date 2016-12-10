@@ -36,8 +36,20 @@ function validateWrite(req, res, next){
     res.redirect('/write');
 }
 
+function validateLeaveComment(req, res, next){
+    req.checkBody('content', 'Content must be at least 2 characters').isLength({ min: 2 });
+    req.checkBody('content', 'Content cannot be longer than 512 characters').isLength({ max: 512 });
+
+    let errors = req.validationErrors();
+    if(!errors) return next();
+
+    req.flash('error', errors.map(e => e.msg));
+    res.redirect('/');
+}
+
 module.exports = {
     validateSignUp,
     validateSignIn,
-    validateWrite
+    validateWrite,
+    validateLeaveComment
 };

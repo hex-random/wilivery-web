@@ -39,16 +39,22 @@ module.exports = (app, passport) => {
     }).save().then(() => res.redirect('/')).catch(err => next(err)));
 
     app.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile'));
+    app.get('/history', isAuthenticated, (req, res, next) => res.render('pages/history'));
+
+    app.get('/api/recently-commented-articles', isAuthenticated, (req, res, next) => req.user.getRecentlyCommentedArticles()
+        .then(articles => res.json(articles)).catch(() => res.send(500)));
+
 
     app.get('/api/recent-articles', (req, res, next) => Article.find()
         .sort('-date').limit(20).exec()
         .then(articles => res.json(articles))
         .catch(() => res.send(500)));
 
-    app.get('/api/get-articles/:nickname', (req, res, next) => Article.find({ author: req.params.nickname })
-        .sort('-date').exec()
-        .then(articles => res.json(articles))
-        .catch(() => res.send(500)));
+    app.get('/api/get-articles/:nickname', (req, res, next) => Article.findByAuthor(req.params.nickname)
+        .then(articles => res.json(articles)).catch(() => res.send(500)));
+
+    app.post('/api/leave-comment/:article', isAuthenticated, validation.validateLeaveComment,
+        (req, res, next) => req.user.leaveComment(req).then(() => res.redirect('/')).catch(err => next(err)));
 
     app.use((req, res, next) => {
         let err = new Error('Not Found');

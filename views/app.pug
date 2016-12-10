@@ -7,9 +7,11 @@ mixin sideNav()
 
     else if user
         li
-            a(href='/profile') @#{user.nickname}
+            a(href='/profile') 프로필
         li
             a(href='/write') 글쓰기
+        li
+            a(href='/history') 활동기록
         li
             a(href='/sign-out') 로그아웃
     else

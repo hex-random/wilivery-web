@@ -1,7 +1,7 @@
 extends ../app
 
 append options
-    - hasTabs = !!user;
+    - hasTabs = refresh = !!user;
 
 append scripts
     if user
@@ -12,17 +12,12 @@ block nav-tabs
         li.tab
             a(href='#recent') Recent
 
-        li.tab.disabled
-            a(href='#groups') Groups
-
-        li.tab.disabled
-            a(href='#chats') Chats
-
 block app
     if user
         .ui.container.section
-            include ../tabs/recent
-            include ../tabs/groups
+            #recent
+                .grid.row: .grid-item.col.s12.m4(v-cloak, v-for='article in articles')
+                    include ../includes/article
     else
         .parallax-container
             .section.no-pad-bot.container
