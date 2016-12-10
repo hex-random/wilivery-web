@@ -10,7 +10,6 @@ html(lang='ko')
         title= title || 'Wilivery'
         link(rel='icon', type='image/png' href='/favicon.png')
 
-        meta(http-equiv='refresh', content='180')
         meta(name='theme-color', content='#6CAED5')
         meta(name='mobile-web-app-capable', content='yes')
         meta(name='apple-mobile-web-app-capable', content='yes')
@@ -18,6 +17,9 @@ html(lang='ko')
         meta(property='og:type', content='website')
         meta(property='og:title', content=title || 'Wilivery')
         meta(property='og:description', content='로컬 공동구매 서비스')
+
+        if refresh
+            meta(http-equiv='refresh', content='600')
 
         script(src='/bower/jquery/dist/jquery.min.js')
 
