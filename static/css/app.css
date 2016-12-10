@@ -36,7 +36,7 @@ nav .button-collapse {
 
 textarea.materialize-textarea {
     resize: vertical;
-    min-height: 15rem !important;
+    min-height: 13rem !important;
 }
 
 .modal.bottom-sheet {
