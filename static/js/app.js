@@ -1,4 +1,11 @@
-/* global Vue moment */
+/* global Vue moment Autolinker */
+
+var autolinker = new Autolinker({
+    stripPrefix: true, newWindow: true,
+    email: true, phone: true, mention: false, hashtag: false,
+    truncate: { length: 25, location: 'smart' }, className: 'link',
+    urls: { schemeMatches: true, wwwMatches: true, tldMatches: true }
+});
 
 function renderArticles(element, options){
     $.ajax(options).done(function(result){
@@ -21,4 +28,4 @@ $(function(){
     $('.button-collapse').sideNav();
 });
 
-if(module) module.exports = renderArticles;
+void(autolinker, renderArticles);
