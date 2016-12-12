@@ -3,7 +3,7 @@
         span.card-title.truncate.tooltipped(data-position='top', v-bind:data-tooltip='article.title') {{ article.title }}
         p
             strong @{{ article.author }}:&nbsp;
-            span(v-html='autolinker.link(article.content)')
+            span.autolink {{ article.content }}
             em.tooltipped.grey-text(data-position='bottom', v-bind:data-tooltip='moment(article.date).format("YYYY-MM-DD HH:mm:ss")')
                 | &nbsp;({{ moment(article.date).fromNow() }})
             br
@@ -20,7 +20,7 @@
             .col.s12: ul.collection(v-if='article.comments.length > 0')
                 li.collection-item(v-for='comment in article.comments')
                     strong @{{ comment.author }}:&nbsp;
-                    span(v-html='autolinker.link(comment.content)')
+                    span.autolink {{ comment.content }}
                     em.tooltipped.grey-text(data-position='bottom', v-bind:data-tooltip='moment(comment.date).format("YYYY-MM-DD HH:mm:ss")')
                         | &nbsp;({{ moment(comment.date).fromNow() }})
 

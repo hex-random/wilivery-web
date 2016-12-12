@@ -1,4 +1,4 @@
-/* global Vue moment Autolinker */
+/* global Vue moment Autolinker filterXSS */
 
 var autolinker = new Autolinker({
     stripPrefix: true, newWindow: true,
@@ -15,6 +15,11 @@ function renderArticles(element, options){
             mounted: function(){
                 $('.modal').modal();
                 $('.tooltipped').tooltip({ delay: 50 });
+                $('.autolink').each(function(){
+                    var text = filterXSS($(this).html());
+                    $(this).html(autolinker.link(text));
+                });
+
                 $('.grid').masonry({ itemSelector: '.grid-item' });
             }
         });

@@ -23,6 +23,7 @@
     "jquery": "^3.1.1",
     "moment": "^2.17.1",
     "masonry": "^4.1.1",
-    "Autolinker.js": "^1.4.0"
+    "Autolinker.js": "^1.4.0",
+    "xss": "^0.3.1"
   }
 }
